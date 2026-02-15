@@ -28,8 +28,8 @@ This project applies data mining techniques to the **Amazon Product Reviews 2023
 ### Setup
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd <your-repo-name>
+git clone https://github.com/SugamM123/CSCE676-DataMining-Project
+cd CSCE676-DataMining-Project
 
 # Create virtual environment (recommended)
 python -m venv venv
