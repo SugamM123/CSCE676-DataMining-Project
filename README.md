@@ -1,58 +1,68 @@
-# CSCE 676: Data Mining Project
+# Amazon Review Analysis: Text Mining & Topic Modeling
 
-## Amazon Cell Phones & Accessories Reviews — Text Mining & Topic Modeling
+## Overview
+This repository contains the final project for CSCE 676: Data Mining. It provides an end-to-end pipeline for evaluating consumer feedback on the Amazon Product Reviews 2023 dataset (Cell Phones and Accessories). The project features:
 
-### Overview
-This project applies data mining techniques to the **Amazon Product Reviews 2023** dataset (Cell Phones and Accessories category) to uncover patterns in consumer feedback. We combine **course techniques** (text mining, TF-IDF embeddings, clustering) with **beyond-course methods** (BERTopic neural topic modeling, transformer-based embeddings) to analyze how review language relates to product satisfaction.
+*   **Classical Text Mining**: TF-IDF embeddings and standard clustering techniques.
+*   **Neural Topic Modeling**: Implementation of BERTopic to uncover latent, highly specific product defects.
+*   **Bias Analysis**: Statistical evaluation of verified versus unverified purchase ratings and temporal inflation.
 
-### Research Questions
-1. What latent topics exist in Cell Phones and Accessories reviews, and how do they correlate with star ratings?
-2. Does BERTopic produce more coherent and actionable topic clusters than classical LDA?
-3. Can we identify systematic rating biases (verified vs. unverified, temporal inflation) that distort product quality signals?
+This framework demonstrates how transformer-based models can complement standard token-level text analysis to yield actionable business intelligence from raw, spontaneous review data.
 
-### Dataset
-- **Source:** [Amazon Reviews 2023](https://amazon-reviews-2023.github.io/) (McAuley Lab, UCSD)
-- **Category:** Cell Phones and Accessories
-- **Sample Size:** 500,000 reviews (sampled from ~10M+)
-- **Features:** Review text, star ratings (1–5), timestamps, user IDs, product IDs, verified purchase flags, helpful votes
+**Project Video:** [Insert Link to your Project Video Here]  
+**Main Deliverable:** `main_notebook.ipynb`
 
-### Project Structure
-```
-├── checkpoint1.ipynb        # Checkpoint 1: Dataset Selection & EDA
-├── requirements.txt         # Python dependencies
-├── README.md                # This file
-├── .gitignore               # Git ignore rules
-└── data/                    # Downloaded data (not tracked in git)
-```
+## Installation
+Clone this repository and install the required dependencies:
 
-### Setup
 ```bash
-# Clone the repository
-git clone https://github.com/SugamM123/CSCE676-DataMining-Project
+git clone https://github.com/SugamM123/CSCE676-DataMining-Project.git
 cd CSCE676-DataMining-Project
-
-# Create virtual environment (recommended)
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Run the notebook
-jupyter notebook checkpoint1.ipynb
 ```
 
-### Checkpoints
-| Checkpoint | Description | Date |
-|---|---|---|
-| 1 | Dataset Selection & EDA | Feb 3, 2026 |
-| 2 | Initial Research Question | Mar 5, 2026 |
-| 3 | Deep Dive | Apr 2, 2026 |
-| 4 | Project Showcase | Week of Apr 20, 2026 |
-| 5 | Final Deliverable | Apr 27, 2026 |
+This will install all necessary packages including `pandas`, `scikit-learn`, and `bertopic`. 
 
-### References
-- Hou, Y., Li, J., He, Z., Yan, A., Chen, X., & McAuley, J. (2024). Bridging Language and Items for Retrieval and Recommendation. *arXiv preprint arXiv:2403.03952*.
+## Quick Start
 
-### License
-This project is for academic purposes (CSCE 676, Texas A&M University).
+### 1. Add Amazon Review Data
+Obtain the Amazon Reviews 2023 dataset (Cell Phones and Accessories) and place it in the `data/` directory. Due to size constraints, the data is not tracked in this repository.
+
+### 2. Run the Analysis
+Launch Jupyter Notebook to execute the primary analysis pipeline:
+
+```bash
+jupyter notebook main_notebook.ipynb
+```
+
+For previous iterations and early exploratory data analysis, refer to `checkpoint1.ipynb` and `checkpoint2.ipynb` located in the `checkpoints/` directory.
+
+## Key Findings
+Our analysis yielded several distinct insights regarding product satisfaction:
+
+*   **Topic Coherence**: BERTopic significantly outperformed classical LDA in identifying nuanced product defects (e.g., specific battery drain issues vs. general "bad phone" clusters).
+*   **Rating Biases**: Verified purchases exhibited statistically less temporal inflation compared to unverified reviews, providing a more reliable signal of true product quality.
+*   **Defect Correlation**: A strong correlation was identified between isolated battery-related vocabulary and extreme 1-star ratings.
+
+## Key Features
+*   **BERTopic Integration**: Utilizes transformer embeddings to group semantically similar reviews into highly interpretable topics.
+*   **Bias Diagnostics**: Breaks down review distributions across temporal and verification axes.
+*   **Curated Data Pipeline**: Preprocessing methods designed to handle large-scale, messy e-commerce textual data.
+
+## Notes
+*   This project was originally developed and executed in Google Colab (Python 3.11). The `requirements.txt` reflects the exact environment used for full reproducibility.
+*   The raw dataset is sourced from the McAuley Lab at UCSD.
+
+## Citation
+If referencing the dataset used in this analysis, please cite:
+
+```bibtex
+@article{hou2024bridging,
+  title={Bridging Language and Items for Retrieval and Recommendation},
+  author={Hou, Yupeng and Li, Jiacheng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
+  journal={arXiv preprint arXiv:2403.03952},
+  year={2024}
+}
+```
