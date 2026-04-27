@@ -9,7 +9,7 @@ This repository contains the final project for CSCE 676: Data Mining. It provide
 
 This framework demonstrates how transformer-based models can complement standard token-level text analysis to yield actionable business intelligence from raw, spontaneous review data.
 
-**Project Video:** https://youtu.be/fXdpQpzoazQ
+**Project Video:** https://youtu.be/fXdpQpzoazQ  
 **Main Deliverable:** `main_notebook.ipynb`
 
 ## Installation
@@ -28,16 +28,22 @@ This will install all necessary packages including `pandas`, `scikit-learn`, and
 ## Quick Start
 
 ### 1. Add Amazon Review Data
-Obtain the Amazon Reviews 2023 dataset (Cell Phones and Accessories) and place it in the `data/` directory. Due to size constraints, the data is not tracked in this repository.
+Due to size constraints, the dataset is not tracked in this repository. You can download the raw JSONL dataset directly from HuggingFace into the `data/` directory by running:
 
-### 2. Run the Analysis
+```bash
+mkdir -p data
+wget -O data/Cell_Phones_and_Accessories.jsonl "https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023/resolve/main/raw/review_categories/Cell_Phones_and_Accessories.jsonl"
+```
+
+### 2. Generate the Data Sample
+Once the raw dataset is downloaded, open and execute `checkpoints/checkpoint1.ipynb`. This will process the raw JSONL data, randomly sample 500,000 reviews, and create the `data/cell_phones_reviews_sample.parquet` file required for the main analysis.
+
+### 3. Run the Main Analysis
 Launch Jupyter Notebook to execute the primary analysis pipeline:
 
 ```bash
 jupyter notebook main_notebook.ipynb
 ```
-
-For previous iterations and early exploratory data analysis, refer to `checkpoint1.ipynb` and `checkpoint2.ipynb` located in the `checkpoints/` directory.
 
 ## Key Findings
 Our analysis yielded several distinct insights regarding product satisfaction:
