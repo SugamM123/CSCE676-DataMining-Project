@@ -9,7 +9,7 @@ This repository contains the final project for CSCE 676: Data Mining. It provide
 
 This framework demonstrates how transformer-based models can complement standard token-level text analysis to yield actionable business intelligence from raw, spontaneous review data.
 
-**Project Video:** [Insert Link to your Project Video Here]  
+**Project Video:** https://youtu.be/fXdpQpzoazQ
 **Main Deliverable:** `main_notebook.ipynb`
 
 ## Installation
